@@ -1,0 +1,17 @@
+// person/person.proto
+syntax = "proto3";
+
+package person;
+
+service PersonsService {
+  rpc FindOne (FindOneRequest) returns (Person) {}
+}
+
+message FindOneRequest {
+  int32 id = 1;
+}
+
+message Person {
+  int32 id = 1;
+  string name = 2;
+}
