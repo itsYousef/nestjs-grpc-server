@@ -5,6 +5,8 @@ package person;
 
 service PersonsService {
   rpc FindOne (FindOneRequest) returns (Person) {}
+  rpc BidiHello(stream HelloRequest) returns (stream HelloResponse);
+  rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse);
 }
 
 message FindOneRequest {
@@ -14,4 +16,12 @@ message FindOneRequest {
 message Person {
   int32 id = 1;
   string name = 2;
+}
+
+message HelloRequest {
+  string greeting = 1;
+}
+
+message HelloResponse {
+  string reply = 1;
 }
